@@ -1,0 +1,69 @@
+$colors:(color1:#d6eadf, color2 :#b8e0d2, color3 :#95b8d1, color4 :#809bce , defult-color: #d6eadf , cancel: #eac4d5 ,text-color: #FFFFFF);
+$text-font:sans-serif;
+@function color($color) {
+	$color: map-get($map: $colors, $key: $color);
+	@return $color;
+}
+@mixin btnstyle {
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    height: 25px;
+    width:25px;
+    
+}
+.note {
+    position: relative;
+     width: 200px;
+    height:200px;
+    textarea {
+        background-color: color(defult-color);
+        min-width: 200px;
+        min-height:200px;
+        display: block;
+    }
+    .noteColor {
+        display: none;
+        position: absolute;
+        left: 20px;
+        bottom: 20px;
+        button {
+            @include btnstyle();
+        }
+        .btn1 {
+            background-color: color(color1);
+        }
+        .btn2 {
+            background-color: color(color2);
+        }
+        .btn3 {
+            background-color: color(color3);
+        }
+        .btn4 {
+            background-color: color(color4);
+        }
+    }
+    .cancel{
+        justify-content: center;
+        position: absolute;
+        left: 150px;
+        bottom: 20px;
+        @include btnstyle();
+        background-color: color(cancel);
+        color: color(text-color);
+        display: none;
+    }
+}
+.note:hover {
+
+    background-color: color(color1);
+    transition: 0.4s;
+    .cancel{  
+        display: flex;
+        justify-content: center;
+    }
+    .noteColor{
+        display: flex;
+        justify-content: center;
+        
+    } 
+}
