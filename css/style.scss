@@ -8,13 +8,14 @@ $text-font:sans-serif;
     border: 2px solid #ccc;
     border-radius: 50%;
     height: 25px;
-    width:25px;
-    
+    width:25px;   
+    cursor: pointer; 
 }
 .note {
-    position: relative;
+    
+     position: relative;
      width: 200px;
-    height:200px;
+     height:200px;
     textarea {
         background-color: color(defult-color);
         min-width: 200px;
@@ -23,7 +24,6 @@ $text-font:sans-serif;
     }
     .noteColor {
         display: none;
-        position: absolute;
         left: 20px;
         bottom: 20px;
         button {
@@ -41,29 +41,53 @@ $text-font:sans-serif;
         .btn4 {
             background-color: color(color4);
         }
+       
     }
-    .cancel{
-        justify-content: center;
-        position: absolute;
-        left: 150px;
-        bottom: 20px;
-        @include btnstyle();
-        background-color: color(cancel);
-        color: color(text-color);
+    .cancel {
         display: none;
     }
 }
 .note:hover {
-
     background-color: color(color1);
     transition: 0.4s;
-    .cancel{  
-        display: flex;
-        justify-content: center;
-    }
-    .noteColor{
-        display: flex;
-        justify-content: center;
-        
-    } 
+        .cancel {
+            display: flex;
+            justify-content: center;
+            position: relative;
+            left: 160px;
+            bottom: 78px; 
+            @include btnstyle();
+            background-color: color(cancel);
+            color: color(text-color);
+            font-size: 15px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: bold;
+            align-items: center;
+        }
+        .noteColor {
+            display: flex;
+            position: relative;
+            justify-content: center;
+            left: -5px;
+            bottom: 50px; 
+        }
+}
+.AddNote {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    right:50px; 
+    bottom: 50px; 
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    background-color: color(cancel);
+    color: color(text-color);
+    font-size: 22px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+    align-items: center;
 }

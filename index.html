@@ -5,15 +5,17 @@
     <title>Sticky Note</title>
 </head>
 <body>
-   <div class="note">
-        <textarea> </textarea>    
+   <div class="note" id="notes">
+        <textarea id="note"> </textarea>    
         <div class="noteColor">
             <button class="btn1"> </button>
             <button class="btn2"> </button>
             <button class="btn3"> </button>
             <button class="btn4"> </button>
           </div>
-          <button class="cancel"> X </button>
+          <span class="cancel" id="closeNote" onclick="closeNote()" >X</span>
    </div>
+   <span class="AddNote" onclick="newNote()">+</span>
+   <script src="js/index.js"></script>
 </body>
 </html>
