@@ -1,14 +1,19 @@
 
 
+class NNote {
+  constructor(id , description , color){
+    this.id=id;
+    this.description=description;
+    this.color=color;
+  }
 
+}
 let Notsestorge = JSON.parse(localStorage.getItem('notelist')) || [];
 let MaxID = JSON.parse(localStorage.getItem('MaxID'));
 
 window.onload=function () {
   MaxID = MaxID? JSON.parse(MaxID):0;
-  localStorage.setItem('noteviwe',JSON.stringify(MaxID));
- 
-  
+  localStorage.setItem('MaxID',JSON.stringify(MaxID));
 };
 
 
@@ -20,9 +25,12 @@ color2 :'#b8e0d2',
 let notes = document.getElementById("notes");
 let numnote =0;
 function closeNote(note) {
+  Notsestorge.splice((NNote) => {
+    NNote.id !== id;
+  },1);
+  localStorage.setItem('notelist',JSON.stringify(Notsestorge));
   note.style.display = "none";
 }
-
 function newNote() {
   MaxID++;
   numnote++;
@@ -33,6 +41,7 @@ function newNote() {
   });
   let Note = document.createElement("div");
   Note.innerHTML = addnote(numnote);
+  localStorage.setItem('MaxID',JSON.stringify(MaxID));
   localStorage.setItem('notelist',JSON.stringify(Notsestorge));
   Notsestorge=JSON.parse(localStorage.getItem('notelist'));
   addtoborde(Note);
