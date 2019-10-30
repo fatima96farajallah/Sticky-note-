@@ -1,45 +1,58 @@
-
+let colors = {color1:'#d6eadf', 
+color2 :'#b8e0d2',
+ color3 :'#95b8d1',
+  color4 :'#809bce'}
 let arr = [];
 let numnote = 0;
-let note = document.getElementById("note");
-function closeNote() {
-   note.style.display = "none";
-    document.getElementById("note").innerHTML = "";
+let notes = document.getElementById("notes");
+
+function closeNote(note) {
+  note.style.display = "none";
+}
+
+function newNote() {
+  numnote++;
+  let Note = document.createElement("div");
+  Note.innerHTML = addnote(numnote);
+  addtoborde(Note);
+}
+
+function addnote(numnote) {
+  let top = Math.floor(Math.random() * Math.floor(1000));
+  let left = Math.floor(Math.random() * Math.floor(1000));
+
+  let note = ` <div class="note" id="note" style="top: ${top}px; left: ${left}px">
+      <textarea id="note${numnote}"> </textarea>    
+        <div class="noteColor">
+          <button class="btn1" onclick="changecolor('color1', this.parentElement.parentElement)" > </button>
+          <button class="btn2" onclick="changecolor('color2', this.parentElement.parentElement)"> </button>
+          <button class="btn3" onclick="changecolor('color3', this.parentElement.parentElement)"> </button>
+          <button class="btn4" onclick="changecolor('color4', this.parentElement.parentElement)"> </button>
+        </div>
+        <span class="cancel" id="closeNote" onclick="closeNote(this.parentElement)" >X</span>
+      </div>`
+  return note;
+}
+
+function addtoborde(Note) {
+  notes.appendChild(Note);
+}
+
+function changecolor(color,note) {
+  
+  switch (color) {
+    case 'color1' :
+        note.firstElementChild.style.backgroundColor=colors.color1;
+        break;
+    case 'color2':
+        note.firstElementChild.style.backgroundColor=colors.color2;
+        break;
+    case 'color3':
+        note.firstElementChild.style.backgroundColor=colors.color3;
+        break;   
+    case 'color4':
+        note.firstElementChild.style.backgroundColor=colors.color4;
+        break; 
   }
-  function newNote() {
-    numnote++;
-    arr.push(numnote);
-    let liitem = document.createElement("div");
-    liitem.innerHTML = addnotes(numnote);
-    let list = document.getElementById("notes");
-    arr[Math.floor(Math.random() * arr.length)]; 
-    addtoborde();
-   }
-   function addnotes(numnote) {
-    let notes = ` <div class="note" id="notes">
-    <textarea id=${numnote}> </textarea>    
-    <div class="noteColor">
-        <button class="btn1"> </button>
-        <button class="btn2"> </button>
-        <button class="btn3"> </button>
-        <button class="btn4"> </button>
-      </div>
-      <span class="cancel" id="closeNote" onclick="closeNote()" >X</span>
-</div>`
-    return notes;
-   }
-   function addtoborde() {
-    let item = document.getElementById(arr.length);
-    let pos = 500;
-    let id = setInterval(frame, 1);
-    function frame() {
-        if (pos == 0) {
-            clearInterval(id);
-        } else {
-            pos--;
-            item.style.right = pos + "px";
-        }
-    }
-    return 0;
-  }
- 
+  
+}

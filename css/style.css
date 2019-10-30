@@ -1,23 +1,31 @@
-.note {
-  position: relative;
+* {
+  outline: none;
+}
+
+.notes {
+  position: absolute;
+}
+
+.notes .note {
+  position: absolute;
   width: 200px;
   height: 200px;
 }
 
-.note textarea {
+.notes .note textarea {
   background-color: #d6eadf;
   min-width: 200px;
   min-height: 200px;
   display: block;
 }
 
-.note .noteColor {
+.notes .note .noteColor {
   display: none;
   left: 20px;
   bottom: 20px;
 }
 
-.note .noteColor button {
+.notes .note .noteColor button {
   border: 2px solid #ccc;
   border-radius: 50%;
   height: 25px;
@@ -25,23 +33,23 @@
   cursor: pointer;
 }
 
-.note .noteColor .btn1 {
+.notes .note .noteColor .btn1 {
   background-color: #d6eadf;
 }
 
-.note .noteColor .btn2 {
+.notes .note .noteColor .btn2 {
   background-color: #b8e0d2;
 }
 
-.note .noteColor .btn3 {
+.notes .note .noteColor .btn3 {
   background-color: #95b8d1;
 }
 
-.note .noteColor .btn4 {
+.notes .note .noteColor .btn4 {
   background-color: #809bce;
 }
 
-.note .cancel {
+.notes .note .cancel {
   display: none;
 }
 

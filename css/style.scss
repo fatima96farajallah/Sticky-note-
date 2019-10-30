@@ -11,42 +11,51 @@ $text-font:sans-serif;
     width:25px;   
     cursor: pointer; 
 }
-.note {
-    
-     position: relative;
-     width: 200px;
-     height:200px;
-    textarea {
-        background-color: color(defult-color);
-        min-width: 200px;
-        min-height:200px;
-        display: block;
-    }
-    .noteColor {
-        display: none;
-        left: 20px;
-        bottom: 20px;
-        button {
-            @include btnstyle();
+
+* {
+    outline: none;
+}
+
+.notes {
+    position: absolute;
+    .note {
+        
+        position: absolute;
+        width: 200px;
+        height:200px;
+        textarea {
+            background-color: color(defult-color);
+            min-width: 200px;
+            min-height:200px;
+            display: block;
         }
-        .btn1 {
-            background-color: color(color1);
+        .noteColor {
+            display: none;
+            left: 20px;
+            bottom: 20px;
+            button {
+                @include btnstyle();
+            }
+            .btn1 {
+                background-color: color(color1);
+            }
+            .btn2 {
+                background-color: color(color2);
+            }
+            .btn3 {
+                background-color: color(color3);
+            }
+            .btn4 {
+                background-color: color(color4);
+            }
+        
         }
-        .btn2 {
-            background-color: color(color2);
+        .cancel {
+            display: none;
         }
-        .btn3 {
-            background-color: color(color3);
-        }
-        .btn4 {
-            background-color: color(color4);
-        }
-       
-    }
-    .cancel {
-        display: none;
     }
 }
+
 .note:hover {
     background-color: color(color1);
     transition: 0.4s;
