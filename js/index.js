@@ -1,13 +1,4 @@
 
-
-class NNote {
-  constructor(id , description , color){
-    this.id=id;
-    this.description=description;
-    this.color=color;
-  }
-
-}
 let Notsestorge = JSON.parse(localStorage.getItem('notelist')) || [];
 let MaxID = JSON.parse(localStorage.getItem('MaxID'));
 
@@ -24,9 +15,10 @@ color2 :'#b8e0d2',
 
 let notes = document.getElementById("notes");
 let numnote =0;
+
 function closeNote(note) {
-  Notsestorge.splice((NNote) => {
-    NNote.id !== id;
+  Notsestorge.splice((Note) => {
+    Note.id !== id;
   },1);
   localStorage.setItem('notelist',JSON.stringify(Notsestorge));
   note.style.display = "none";

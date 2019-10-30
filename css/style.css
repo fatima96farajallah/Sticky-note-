@@ -54,6 +54,7 @@
 }
 
 .note:hover {
+  z-index: 1;
   background-color: #d6eadf;
   -webkit-transition: 0.4s;
   transition: 0.4s;
