@@ -1,9 +1,12 @@
+
+
+let Notsestorge = JSON.parse(localStorage.getItem('arr')) || [];
 let colors = {color1:'#d6eadf', 
 color2 :'#b8e0d2',
  color3 :'#95b8d1',
   color4 :'#809bce'}
-let arr = [];
 let numnote = 0;
+let arr = [];
 let notes = document.getElementById("notes");
 
 function closeNote(note) {
@@ -12,8 +15,12 @@ function closeNote(note) {
 
 function newNote() {
   numnote++;
+  Notsestorge.push(numnote);
   let Note = document.createElement("div");
   Note.innerHTML = addnote(numnote);
+  localStorage.setItem('arr',JSON.stringify(Notsestorge));
+  Notsestorge=JSON.parse(localStorage.getItem('arr'));
+  console.log(Notsestorge);
   addtoborde(Note);
 }
 
