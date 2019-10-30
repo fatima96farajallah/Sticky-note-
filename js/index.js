@@ -2,12 +2,13 @@
 
 
 let Notsestorge = JSON.parse(localStorage.getItem('notelist')) || [];
-let numnote = JSON.parse(localStorage.getItem('noteviwe'));
-
-localStorage.setItem('noteviwe',JSON.stringify(numnote));
+let MaxID = JSON.parse(localStorage.getItem('MaxID'));
 
 window.onload=function () {
+  MaxID = MaxID? JSON.parse(MaxID):0;
+  localStorage.setItem('noteviwe',JSON.stringify(MaxID));
  
+  
 };
 
 
@@ -17,15 +18,16 @@ color2 :'#b8e0d2',
   color4 :'#809bce'}
 
 let notes = document.getElementById("notes");
-
+let numnote =0;
 function closeNote(note) {
   note.style.display = "none";
 }
 
 function newNote() {
+  MaxID++;
   numnote++;
   Notsestorge.push({
-    id:numnote,
+    id:MaxID,
     description:"",
     color:"#d6eadf"
   });
