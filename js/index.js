@@ -16,7 +16,7 @@ window.onload=function () {
   localStorage.setItem('MaxID',JSON.stringify(MaxID));
 };
 
-
+document.getElementById("notes").style.zIndex = "-1";
 let colors = {color1:'#d6eadf', 
 color2 :'#b8e0d2',
  color3 :'#95b8d1',
@@ -51,7 +51,7 @@ function addnote(numnote) {
   let top = Math.floor(Math.random() * Math.floor(700));
   let left = Math.floor(Math.random() * Math.floor(1000));
 
-  let note = ` <div class="note" id="note" style="top: ${top}px; left: ${left}px">
+  let note = ` <div class="note" id="note" style="top: ${top}px; left: ${left}px" onclick="myfunction()">
       <textarea id="note${numnote}"></textarea>    
         <div class="noteColor">
           <button class="btn1" onclick="changecolor('color1', this.parentElement.parentElement)" > </button>
@@ -83,4 +83,7 @@ function changecolor(color,note) {
         break; 
   }
   
+}
+function myfunction() {
+  document.getElementById("note").style.zIndex = "1";
 }
